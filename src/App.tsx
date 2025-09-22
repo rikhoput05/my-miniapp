@@ -10,6 +10,8 @@ function App() {
     <div style={{ textAlign: "center", padding: "2rem" }}>
       <h1>👋 Halo dari Mini App!</h1>
       <p>Contoh integrasi dengan Farcaster Mini Apps SDK.</p>
+
+      {/* Tombol buka website */}
       <button
         onClick={() => actions.openUrl("https://farcaster.xyz")}
         style={{
@@ -23,6 +25,7 @@ function App() {
           marginRight: "0.5rem",
         }}
       >
+        🌐 Buka Farcaster
       </button>
 
       {/* Tombol buka composer */}
@@ -50,4 +53,3 @@ function App() {
 }
 
 export default App;
-
