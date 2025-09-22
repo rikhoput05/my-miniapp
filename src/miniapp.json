@@ -2,5 +2,6 @@
   "name": "My Mini App",
   "description": "Contoh mini-app sederhana untuk Farcaster",
   "icon": "/icon.png",
-  "url": "http://localhost:5173"
+  "url": "http://localhost:5177"
 }
+
