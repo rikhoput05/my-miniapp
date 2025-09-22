@@ -1,0 +1,11 @@
+{
+  "miniapp": {
+    "version": "1",
+    "name": "Tebak Angka",
+    "iconUrl": "https://my-miniapp-iota.vercel.app/icon.png",
+    "homeUrl": "https://my-miniapp-iota.vercel.app",
+    "description": "Game sederhana untuk menebak angka 1-10",
+    "primaryCategory": "games",
+    "tags": ["game", "tebak", "angka"]
+  }
+}
