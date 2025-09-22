@@ -1,53 +1,27 @@
-import { useEffect } from "react";
-import { actions } from "@farcaster/miniapp-sdk";
+import React, { useState } from "react";
+import Button from "./Button";
 
 function App() {
-  useEffect(() => {
-    actions.ready(); // Beri tahu Warpcast bahwa mini-app siap
-  }, []);
+  const [message, setMessage] = useState("");
+  const [target] = useState(() => Math.floor(Math.random() * 10) + 1);
+
+  const handleGuess = (guess: number) => {
+    if (guess === target) {
+      setMessage(`🎉 Benar! Angkanya ${target}`);
+    } else {
+      setMessage(`❌ Salah! Coba lagi.`);
+    }
+  };
 
   return (
-    <div style={{ textAlign: "center", padding: "2rem" }}>
-      <h1>👋 Halo dari Mini App!</h1>
-      <p>Contoh integrasi dengan Farcaster Mini Apps SDK.</p>
-
-      {/* Tombol buka website */}
-      <button
-        onClick={() => actions.openUrl("https://farcaster.xyz")}
-        style={{
-          padding: "10px 20px",
-          borderRadius: "8px",
-          background: "#5b21b6",
-          color: "white",
-          border: "none",
-          cursor: "pointer",
-          marginTop: "1rem",
-          marginRight: "0.5rem",
-        }}
-      >
-        🌐 Buka Farcaster
-      </button>
-
-      {/* Tombol buka composer */}
-      <button
-        onClick={() =>
-          actions.openComposer({
-            text: "Halo dari Mini App 🚀",
-            embeds: ["https://farcaster.xyz"], // opsional
-          })
-        }
-        style={{
-          padding: "10px 20px",
-          borderRadius: "8px",
-          background: "#16a34a",
-          color: "white",
-          border: "none",
-          cursor: "pointer",
-          marginTop: "1rem",
-        }}
-      >
-        ✍️ Buka Composer
-      </button>
+    <div style={{ textAlign: "center", marginTop: "50px", fontFamily: "sans-serif" }}>
+      <h1>🎮 Tebak Angka (1-10)</h1>
+      <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap" }}>
+        {Array.from({ length: 10 }, (_, i) => (
+          <Button key={i} label={(i + 1).toString()} onClick={() => handleGuess(i + 1)} />
+        ))}
+      </div>
+      <p style={{ marginTop: "20px", fontSize: "18px" }}>{message}</p>
     </div>
   );
 }
